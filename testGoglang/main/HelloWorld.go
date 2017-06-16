@@ -1,5 +1,8 @@
 package main
 
+import "fmt"
+//import
+
 func main(){
 	println("hello world")
 	var a, f int
@@ -15,5 +18,7 @@ func main(){
 	println("a + f = " , f, a , a + f)
 	kredo := "kredo"
 	println(kredo)
+	fmt.Print("Csrcle square = ", 3.14 * Circle.Radius * Radius / 2)
+
 }
 
