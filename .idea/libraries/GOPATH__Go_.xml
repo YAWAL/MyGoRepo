@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="GOPATH &lt;Go&gt;">
     <CLASSES>
+      <root url="file://C:/gopath/src/github.com" />
+      <root url="file://C:/gopath/src/MyMap" />
       <root url="file://C:/gopath/src/testGo" />
     </CLASSES>
     <SOURCES>
+      <root url="file://C:/gopath/src/github.com" />
+      <root url="file://C:/gopath/src/MyMap" />
       <root url="file://C:/gopath/src/testGo" />
     </SOURCES>
     <excluded>
