@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+//binary search
 func binary_search(array []int, item int) (string , int){
 	low := 0
 	high := len(array) - 1
