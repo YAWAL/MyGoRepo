@@ -4,7 +4,8 @@ import "fmt"
 
 func main()  {
 
-	//var MyArray [5]int
+	var MyArray [5]int
+	fmt.Println(MyArray)
 
 	var x [5]float64
 	x[0] = 98

@@ -6,10 +6,10 @@ func main()  {
 
 	//Единственное отличие объявления среза от объявления массива — отсутствие указания длины в квадратных скобках.
 	var x []float64
+	fmt.Println(x)
 
 	stringSlice := []string {"1", "2", "3", "4"}
 
-	fmt.Println(x)
 	//fmt.Print("\n")
 	fmt.Print(stringSlice)
 	fmt.Print("\n")
