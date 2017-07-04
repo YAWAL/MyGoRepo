@@ -3,10 +3,12 @@ package main
 import (
 	"math"
 	"fmt"
+
 )
 
 /*
 Дано ціле число m > 1. Отримати найбільше ціле k, при якому 4^k < m
+page 44
  */
 
 func showBiggestK( m int) {
@@ -46,7 +48,11 @@ func findMaxValueOfK(valuesOfK []int) int {
 }
 
 func main()  {
-
-	showBiggestK(1000000)
-
+	fmt.Println("_____________ \n Дано ціле число m > 1. Отримати найбільше ціле k, при якому 4^k < m")
+	for   {
+		var m int
+		fmt.Println("Please, enter m : ")
+		fmt.Scanln(&m)
+		showBiggestK(m)
+	}
 }

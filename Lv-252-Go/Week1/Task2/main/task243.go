@@ -2,32 +2,56 @@ package main
 
 import "fmt"
 
+func WriteTask()  {
+	fmt.Println("Дано натуральне число n. \n" +
+		"Чи можна представити його у вигляді суми двох квадратів натуральних чисел? \n" +
+		"Якщо можна, то : \n" +
+		"a) вказати пару х, у таких натуральних чисел, що n = х^2 + y^2 \n" +
+		"б) вказати всі пари х, у таких натуральних чисел, що n = х^2 + y^2, x >= y \n")
+}
+
+//answer for task 243а page 104
+func oneRootFor243(n int) {
+	var x, y int
+	rootCounter := 0
+	for x = 1; x < n; x ++ {
+		for y = 1; y < n ; y ++  {
+			if x*x + y*y == n && y <= x{//
+				rootCounter++
+				fmt.Println("Task a -> Pair of natural numbers for n =" , n, "when x^2 + y^2 = n : x =", x, " y =", y)
+			}
+			if rootCounter > 1 {
+				break
+			}
+		}
+	}
+	if rootCounter == 0{
+		fmt.Println("there is no root for n =", n)
+	}
+}
+
 //answer for task 243б page 104
 func twoRootsFor243(n int)  {
 	var x, y int
+	rootCounter := 0
 	for x = 1; x < n; x ++ {
-		for y = 1; y < n; y ++  {
-			if x*x + y*y == n {
-				//fmt.Println("x*x + y*y = n" , x, y ,n)
-				fmt.Println("twoRootsFor243:Pair of natural numbers when x^2 + y^2 = n : x =", x, " y =", y, " n = ", n)
+		for y = 1; y < n ; y ++  {
+			if x*x + y*y == n && y <= x {
+				rootCounter++
+				fmt.Println("Task б -> Pairs of natural numbers for n =" , n, "when x^2 + y^2 = n and x >= y: x =", x, " y =", y)
 			}
 		}
 	}
 }
 
-//answer for task 243а page 104
-func oneRootFor243(n int)  {
-	var x int
-	//when one root (y) member already defined (y = 1)
-	y := 1
-	for x = 1; x < n; x ++ {
-		if x*x + y*y == n {
-			//fmt.Println("x*x + y*y = n" , x, y ,n)
-			fmt.Println("oneRootFor243:Pair of natural numbers when x^2 + y^2 = n : x =", x, " y =", y, " n = ", n)
-		}
-	}
-}
 func main()  {
-	oneRootFor243(10)
-	twoRootsFor243(10)
+
+	WriteTask()
+	for   {
+		var n int
+		fmt.Println("Please, enter n : ")
+		fmt.Scanln(&n)
+		oneRootFor243(n)
+		twoRootsFor243(n)
+	}
 }
