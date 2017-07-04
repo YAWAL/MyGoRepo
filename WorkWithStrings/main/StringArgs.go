@@ -2,14 +2,18 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"strings"
 )
-
-func main() {
-	var s, sep string
-	for i := 1; i < len(os.Args); i++ {
-		s += sep + os.Args[i]
-		sep = " "
+func checkContains(){
+	row1 := "asdfghjklzx{}}{{Pcvbm"
+	row2 := "{"
+	if strings.Contains(row1, row2) {
+		fmt.Println("yes")
+	}else {
+		fmt.Println("no")
 	}
-	fmt.Println(s)
+
+}
+func main() {
+	checkContains()
 }
