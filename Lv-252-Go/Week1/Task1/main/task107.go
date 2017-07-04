@@ -25,7 +25,7 @@ func isMmoreThan5(m int) bool {
 
 func createSliceOfK(m int) []int{
 	//empty slice for allocation values of k with capacity m (to prevent runtime error -> panic: runtime error: index out of range)
-	valuesOfK :=make([]int, m)
+	valuesOfK := make([]int, m)
 	//creating slice of k
 	for k := 1; int(math.Pow(4, float64(k))) < m; k++{
 		for j := k - 1; j < k ; j++ {
@@ -47,6 +47,6 @@ func findMaxValueOfK(valuesOfK []int) int {
 
 func main()  {
 
-	showBiggestK(17)
+	showBiggestK(1000000)
 
 }
