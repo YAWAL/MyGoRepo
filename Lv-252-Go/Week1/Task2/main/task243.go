@@ -9,7 +9,7 @@ func twoRootsFor243(n int)  {
 		for y = 1; y < n; y ++  {
 			if x*x + y*y == n {
 				//fmt.Println("x*x + y*y = n" , x, y ,n)
-				fmt.Println("twoRootsFor243:Pair of natural numbers when x*x + y*y = n : x =", x, " y =", y, " n = ", n)
+				fmt.Println("twoRootsFor243:Pair of natural numbers when x^2 + y^2 = n : x =", x, " y =", y, " n = ", n)
 			}
 		}
 	}
@@ -23,7 +23,7 @@ func oneRootFor243(n int)  {
 	for x = 1; x < n; x ++ {
 		if x*x + y*y == n {
 			//fmt.Println("x*x + y*y = n" , x, y ,n)
-			fmt.Println("oneRootFor243:Pair of natural numbers when x*x + y*y = n : x =", x, " y =", y, " n = ", n)
+			fmt.Println("oneRootFor243:Pair of natural numbers when x^2 + y^2 = n : x =", x, " y =", y, " n = ", n)
 		}
 	}
 }
