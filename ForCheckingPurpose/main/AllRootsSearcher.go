@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 //answer for task 243б page 104
-func searchAllRoots(n int)  {
+func SearchAllRoots(n int)  {
 	var x, y int
 	rootCounter := 0
 	for x = 1; x < n; x ++ {

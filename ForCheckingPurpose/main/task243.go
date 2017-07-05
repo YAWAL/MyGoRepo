@@ -12,6 +12,6 @@ func main()  {
 		fmt.Println("Please, enter n : ")
 		fmt.Scanln(&n)
 		SearchOneRoot(n)
-		searchAllRoots(n)
+		SearchAllRoots(n)
 	}
 }
