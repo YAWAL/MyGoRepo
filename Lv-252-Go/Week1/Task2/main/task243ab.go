@@ -11,7 +11,7 @@ func WriteTask()  {
 }
 
 //answer for task 243а page 104
-func SearchOneRoot(n int) bool{
+func SearchOneRoot(n int)  {
 	var x, y int
 	rootCounter := 0
 	for x = 1; x < n; x ++ {
@@ -24,12 +24,10 @@ func SearchOneRoot(n int) bool{
 				break
 			}
 		}
-		return true
 	}
 	if rootCounter == 0{
 		fmt.Println("there is no root for n =", n)
 	}
-	return false
 }
 
 //answer for task 243б page 104

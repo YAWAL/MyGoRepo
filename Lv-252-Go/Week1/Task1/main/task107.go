@@ -11,13 +11,13 @@ import (
 page 44
  */
 
-func showBiggestK( m int) {
-	if  isMmoreThan5(m){
-		fmt.Println("Biggest k value for equation 4^k < m , where m = ", m, " -> ", findMaxValueOfK(createSliceOfK(m)))
+func ShowBiggestK( m int) {
+	if  IsMmoreThan5(m){
+		fmt.Println("Biggest k value for equation 4^k < m , where m = ", m, " -> ", findMaxValueOfK(CreateSliceOfK(m)))
 	}
 }
 
-func isMmoreThan5(m int) bool {
+func IsMmoreThan5(m int) bool {
 	if m > 5 {
 		return true
 	}
@@ -25,7 +25,7 @@ func isMmoreThan5(m int) bool {
 	return false
 }
 
-func createSliceOfK(m int) []int{
+func CreateSliceOfK(m int) []int{
 	//empty slice for allocation values of k with capacity m (to prevent runtime error -> panic: runtime error: index out of range)
 	valuesOfK := make([]int, m)
 	//creating slice of k
@@ -53,6 +53,6 @@ func main()  {
 		var m int
 		fmt.Println("Please, enter m : ")
 		fmt.Scanln(&m)
-		showBiggestK(m)
+		ShowBiggestK(m)
 	}
 }
