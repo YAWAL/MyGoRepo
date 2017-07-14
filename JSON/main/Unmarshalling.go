@@ -10,8 +10,6 @@ type Message struct {
 	Body string
 	Time int64
 }
-
-
 func main()  {
 
 
@@ -21,6 +19,6 @@ b := []byte (`[123 34 78 97 109 101 34 58 34 65 108 105 99 101 34 44 34 66 111 1
 
 	error := json.Unmarshal(b, &msg)
 
-	fmt.Println(msg)
-	fmt.Println(error)
+	fmt.Println("message - > ",msg)
+	fmt.Println("error - >" ,error)
 }
