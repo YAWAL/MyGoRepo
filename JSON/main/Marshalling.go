@@ -5,11 +5,11 @@ import (
 	"fmt"
 )
 
-type Message struct {
-	Name string
-	Body string
-	Time int64
-}
+//type Message struct {
+//	Name string
+//	Body string
+//	Time int64
+//}
 
 
 func main()  {
