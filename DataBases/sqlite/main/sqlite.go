@@ -6,14 +6,14 @@ import (
 )
 
 var (
-	db, _    = sql.Open("sqlite3", "DataBase/sqlite/client_db")
+	db, _         = sql.Open("sqlite3", "DataBase/sqlite/client_db")
 	createDBquery = "create table if not exists contacts (id primary key int, name varchar (20), birthday date, isblocked boolean)"
 )
 
 type Contact struct {
-	Id int
-	Name string
-	Birtday int
+	Id        int
+	Name      string
+	Birtday   int
 	IsBlocked bool
 }
 
@@ -23,12 +23,11 @@ func createDB(query string) error {
 		return err
 	}
 
-
 	fmt.Print(result)
 	return nil
 }
 
-func (c *Contact) InsertIntoContact(Id int, Name string, Birtday int, IsBlocked bool ) (bool, error) {
+func (c *Contact) InsertIntoContact(Id int, Name string, Birtday int, IsBlocked bool) (bool, error) {
 
 	tx, _ := db.Begin()
 	stmp, _ := tx.Prepare("insert into contacts(id, name, birthday, isblocked) values (?, ?, ?)")
@@ -41,10 +40,9 @@ func (c *Contact) InsertIntoContact(Id int, Name string, Birtday int, IsBlocked 
 
 }
 
-func main()  {
-	createDB(createDBquery)
-	c := Contact{1,"sdfdsf",1568904576,false}
-	c.InsertIntoContact(56,"56767",1568904576,true)
-
+func main() {
+	//createDB(createDBquery)
+	c := Contact{}
+	c.InsertIntoContact(56, "56767", 1568904576, true)
 
 }
