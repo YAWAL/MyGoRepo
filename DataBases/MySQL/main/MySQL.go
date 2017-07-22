@@ -8,21 +8,30 @@ import (
 	"fmt"
 )
 
-func main() {
-	db := mysql.New("tcp", "", "127.0.0.1:3306", "root", "root", "users")
 
+func openDB() mysql.Conn {
+	address := "127.0.0.1:3306"
+	user := "root"
+	pass := "root"
+	dbname := "users"
+	db := mysql.New("tcp", "", address, user, pass, dbname)
 	err := db.Connect()
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
+	return db
+}
+
+
+func main() {
+	db := openDB()
 
 	rows, _, err := db.Query("select * from contacts")
-	//rows, res, err := db.Query("select * from contacts")
 	if err != nil {
 		panic(err)
 	}
 
-	//db.Ping()
+	fmt.Printf("%v", db.Ping())
 
 
 	for _, row := range rows {
