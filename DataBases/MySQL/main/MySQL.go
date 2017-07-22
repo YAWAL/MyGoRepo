@@ -31,7 +31,7 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Printf("%v", db.Ping())
+	fmt.Println("%v", db.Ping())
 
 
 	for _, row := range rows {
@@ -47,7 +47,7 @@ func main() {
 
 		// You can use it directly if conversion isn't needed
 		os.Stdout.Write(val1)
-		fmt.Print(val1)
+		fmt.Println(val1)
 
 		// You can get converted value
 		//number := row.Int(0)      // Zero value
