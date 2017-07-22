@@ -3,11 +3,10 @@ package main
 import (
 	"os"
 	"github.com/ziutek/mymysql/mysql"
-	_ "github.com/ziutek/mymysql/native" // Native engine
-	 _ "github.com/ziutek/mymysql/thrsafe" // Thread safe engine
+	_ "github.com/ziutek/mymysql/native"  // Native engine
+	_ "github.com/ziutek/mymysql/thrsafe" // Thread safe engine
 	"fmt"
 )
-
 
 func openDB() mysql.Conn {
 	address := "127.0.0.1:3306"
@@ -22,7 +21,6 @@ func openDB() mysql.Conn {
 	return db
 }
 
-
 func main() {
 	db := openDB()
 
@@ -32,7 +30,6 @@ func main() {
 	}
 
 	fmt.Println("%v", db.Ping())
-
 
 	for _, row := range rows {
 		for _, col := range row {
