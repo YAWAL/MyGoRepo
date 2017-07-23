@@ -13,12 +13,6 @@ var (
 	name string
 )
 
-type Contact struct {
-	Id        int
-	Name      string
-	Birtday   int
-	IsBlocked bool
-}
 
 type Employee struct {
 	//gorm.Model
