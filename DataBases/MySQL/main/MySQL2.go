@@ -8,7 +8,8 @@ import (
 	"fmt"
 )
 
-func openDB() mysql.Conn {
+
+func openDB2() mysql.Conn {
 	address := "127.0.0.1:3306"
 	user := "root"
 	pass := "root"
@@ -22,7 +23,7 @@ func openDB() mysql.Conn {
 }
 
 func main() {
-	db := openDB()
+	db := openDB2()
 
 	rows, _, err := db.Query("select * from contacts")
 	if err != nil {
@@ -50,8 +51,8 @@ func main() {
 		//number := row.Int(0)      // Zero value
 		//str    := row.Str(1)      // First value
 		//bignum := row.MustUint(2) // Second value
-		//
-		// //You may get values by column name
+
+		// You may get values by column name
 		//first := res.Map("FirstColumn")
 		//second := res.Map("SecondColumn")
 		//SecondColumnval1, val2 := row.Int(first), row.Str(second)

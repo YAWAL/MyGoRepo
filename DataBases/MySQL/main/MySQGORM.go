@@ -1,9 +1,16 @@
 package main
 
 import (
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/go-sql-driver/mysql" // better driver to use with GORM
 	"fmt"
+	"log"
+)
+
+var (
+	id int
+	name string
 )
 
 type Contact struct {
@@ -31,16 +38,37 @@ func Connect() *gorm.DB {
 	return db
 }
 
-func main() {
 
+
+func main() {
 	db := Connect()
 
 	err := Connect().DB().Ping()
 
 	fmt.Println(err)
+	//db.CreateTable(Contact{1, "vasyl", 213456, true})
+	//db.Exec("alter table add (id, name, birthday, isblocked) values ("2", "petro", 65556867, false)")
 
-	db.CreateTable(Employee{})
+	num := db.Select("Select id, name from contacts")
 
+	fmt.Printf("%v",num)
 	defer db.Close()
+
+	rows := db.Select("select id, name from users where id = 1")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+	//for rows.Find {
+	//	//err := rows.Scan(&id, &name)
+	//	if err != nil {
+	//		log.Fatal(err)
+	//	}
+	//	log.Println(id, name)
+	//}
+	//err = rows.Err()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
