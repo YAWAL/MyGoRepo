@@ -2,9 +2,7 @@ package main
 
 import (
 	"github.com/jinzhu/gorm"
-	//"github.com/ziutek/mymysql/mysql"
-	_ "github.com/ziutek/mymysql/native"  // Native engine
-	_ "github.com/ziutek/mymysql/thrsafe" // Thread safe engine
+	_ "github.com/go-sql-driver/mysql"  // better driver to use with GORM
 	"fmt"
 )
 
@@ -14,6 +12,17 @@ var (
 	pass    = "root"
 	dbname  = "users"
 )
+
+func Connect() *gorm.DB {
+	db, err := gorm.Open(
+		"mysql",
+		"root:root@/users?charset=utf8&parseTime=True&loc=Local",
+	)
+	if err != nil {
+		panic(err.Error())
+	}
+	return db
+}
 
 func connectDB() *gorm.DB {
 	db, err := gorm.Open("mysql", "root@/users?charset=utf8&parseTime=True&loc=Local")
@@ -25,14 +34,12 @@ func connectDB() *gorm.DB {
 }
 
 func main() {
-	db, err := connectDB()
-	//db, err := gorm.Open("MySQL", "tcp", "", address, user, pass, dbname)
-	//
-	//if err != nil {
-	//	panic(err.Error())
-	//}
 
-	err := connectDB().DB().Ping()
+	Connect()
+	//connectDB()
+
+	//err := connectDB().DB().Ping()
+	err := Connect().DB().Ping()
 
 	fmt.Println(err)
 
