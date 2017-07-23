@@ -27,11 +27,11 @@ func Connect() *gorm.DB {
 
 func main() {
 
-	Connect()
+	db := Connect()
 
 	err := Connect().DB().Ping()
 
-	fmt.Println(err)
+	fmt.Println( err)
 
-	//db.Close()
+	defer db.Close()
 }
