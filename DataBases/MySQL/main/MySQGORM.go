@@ -13,6 +13,12 @@ type Contact struct {
 	IsBlocked bool
 }
 
+type Employee struct {
+	//gorm.Model
+	FirstName string // Should Start with UpperCase !!!
+	LastName  string // Should Start with UpperCase !!!
+}
+
 func Connect() *gorm.DB {
 	db, err := gorm.Open(
 		"mysql",
@@ -31,7 +37,10 @@ func main() {
 
 	err := Connect().DB().Ping()
 
-	fmt.Println( err)
+	fmt.Println(err)
+
+	db.CreateTable(Employee{})
 
 	defer db.Close()
+
 }
