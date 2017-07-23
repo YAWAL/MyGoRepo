@@ -2,33 +2,25 @@ package main
 
 import (
 	"github.com/jinzhu/gorm"
-	_ "github.com/go-sql-driver/mysql"  // better driver to use with GORM
+	_ "github.com/go-sql-driver/mysql" // better driver to use with GORM
 	"fmt"
 )
 
-var (
-	address = "127.0.0.1:3306"
-	user    = "root"
-	pass    = "root"
-	dbname  = "users"
-)
+type Contact struct {
+	Id        int
+	Name      string
+	Birtday   int
+	IsBlocked bool
+}
 
 func Connect() *gorm.DB {
 	db, err := gorm.Open(
 		"mysql",
 		"root:root@/users?charset=utf8&parseTime=True&loc=Local",
 	)
-	if err != nil {
-		panic(err.Error())
-	}
-	return db
-}
-
-func connectDB() *gorm.DB {
-	db, err := gorm.Open("mysql", "root@/users?charset=utf8&parseTime=True&loc=Local")
 	db.LogMode(true)
 	if err != nil {
-		fmt.Println(err)
+		panic(err.Error())
 	}
 	return db
 }
@@ -36,9 +28,7 @@ func connectDB() *gorm.DB {
 func main() {
 
 	Connect()
-	//connectDB()
 
-	//err := connectDB().DB().Ping()
 	err := Connect().DB().Ping()
 
 	fmt.Println(err)
