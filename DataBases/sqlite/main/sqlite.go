@@ -44,7 +44,7 @@ func (c *Contact) InsertIntoContact(Id int, Name string, Birtday int, IsBlocked 
 }
 
 func main() {
-	//createDB(createDBquery)
+	createDB(createDBquery)
 	//c := Contact{}
 	//c.InsertIntoContact(56, "56767", 1568904576, true)
 
