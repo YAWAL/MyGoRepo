@@ -53,6 +53,7 @@ func main() {
 		log.Fatal(err)
 	}
 	defer rows.Close()
+
 	//for rows.Find {
 	//	//err := rows.Scan(&id, &name)
 	//	if err != nil {
@@ -60,9 +61,9 @@ func main() {
 	//	}
 	//	log.Println(id, name)
 	//}
-	//err = rows.Err()
-	if err != nil {
-		log.Fatal(err)
-	}
+	//err = rows.Error
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
 
 }
