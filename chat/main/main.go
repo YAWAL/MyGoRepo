@@ -6,6 +6,7 @@ import (
 	"sync"
 	"path/filepath"
 	"html/template"
+	"flag"
 )
 
 // templ represents a single template
@@ -25,21 +26,16 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
-	//r := &room{
-	//	forward: make(chan []byte),
-	//	join: make(chan *client),
-	//	leave: make(chan *client),
-	//	clients: make(map[*client]bool),
-	//}
-
+	var addr = flag.String("addr", ":8080", "The addr of the application.")
+	flag.Parse() // parse the flags
 	r := newRoom()
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
 	// get the room going
 	go r.run()
 	// start the web server
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	log.Println("Starting web server on", *addr)
+	if err := http.ListenAndServe(*addr, nil); err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
 }
