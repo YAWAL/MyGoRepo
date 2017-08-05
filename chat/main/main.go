@@ -25,6 +25,14 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	//r := &room{
+	//	forward: make(chan []byte),
+	//	join: make(chan *client),
+	//	leave: make(chan *client),
+	//	clients: make(map[*client]bool),
+	//}
+
 	r := newRoom()
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
