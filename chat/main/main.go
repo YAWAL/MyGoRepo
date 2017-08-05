@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"sync"
 	"path/filepath"
-	"html/template"
+	"text/template"
 	"flag"
 )
 
