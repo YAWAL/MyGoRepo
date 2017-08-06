@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 	"text/template"
 	"flag"
+	"os"
+	"github.com/YAWAL/MyGoRepo/GoBlueprint/trace"
 )
 
 // templ represents a single template
@@ -29,6 +31,7 @@ func main() {
 	var addr = flag.String("addr", ":8080", "The addr of the application.")
 	flag.Parse() // parse the flags
 	r := newRoom()
+	r.tracer = trace.New(os.Stdout)
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
 	// get the room going
