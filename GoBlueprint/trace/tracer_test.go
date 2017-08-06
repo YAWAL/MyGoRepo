@@ -5,6 +5,8 @@ import (
 	"bytes"
 )
 
+
+
 func TestNew(t *testing.T) {
 	var buf bytes.Buffer
 	tracer := New(&buf)
