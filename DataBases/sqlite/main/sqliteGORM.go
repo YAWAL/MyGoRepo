@@ -33,8 +33,6 @@ func main() {
 
 	// Update - update product's price to 2000
 	db.Model(&product).Update("Price", 2000)
-	query := db.Where("main_user = ? AND contact_user = ?").Find(&product)
-	values := query.v
 
 	// Delete - delete product
 	db.Delete(&product)
