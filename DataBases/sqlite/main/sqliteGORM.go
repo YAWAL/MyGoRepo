@@ -29,9 +29,12 @@ func main() {
 	var product Product
 	db.First(&product, 1) // find product with id 1
 	db.First(&product, "code = ?", "L1212") // find product with code l1212
+	db.Where("code = L1212")
 
 	// Update - update product's price to 2000
 	db.Model(&product).Update("Price", 2000)
+	query := db.Where("main_user = ? AND contact_user = ?").Find(&product)
+	values := query.v
 
 	// Delete - delete product
 	db.Delete(&product)
