@@ -1,4 +1,4 @@
-package settingService
+package main
 
 import (
 	"testing"

@@ -1,4 +1,4 @@
-package settingService
+package main
 
 // RequestHeader is a standard structure for header
 //DELETE THIS
