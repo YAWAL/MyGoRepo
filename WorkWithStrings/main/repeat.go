@@ -7,7 +7,7 @@ import (
 
 func main() {
 	textString := "Japan"
-	repString := strings.Repeat(textString, 5)
+	repString := strings.Repeat(textString, 7)
 	fmt.Println(repString)
 
 	textString = " A " // char with space on both side
