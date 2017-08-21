@@ -7,6 +7,7 @@ import (
 	"errors"
 	"github.com/8tomat8/SSU-Golang-252-Chat/messageService"
 	"github.com/8tomat8/SSU-Golang-252-Chat/database"
+	"github.com/8tomat8/SSU-Golang-252-Chat/client/contacts"
 )
 
 // BlockUserRequestBody is a custom body for BlockUserRequest
@@ -60,7 +61,7 @@ func BlockUnblockUser(request *messageService.Message) (bool, error) {
 	// UPDATE contacts SET IsBlocked = "IsBlocked value from request body"
 	// WHERE main_user = "mainUser value from request body"
 	// AND  contact_user = "contactUser value from request body"
-	//db.Model(&Contact).Where("main_user = ? AND contact_user = ?", mainUser, contactUser).Update("is_blocked", IsBlocked)
+	db.Model(&contact).Where("main_user = ? AND contact_user = ?", mainUser, contactUser).Update("is_blocked", IsBlocked)
 	if db.Error != nil {
 		loger.Log.Errorf("Error has occurred: ", err)
 		return false, err
@@ -70,11 +71,11 @@ func BlockUnblockUser(request *messageService.Message) (bool, error) {
 
 // ContactResult struct is a copy of Contact struct from database package,
 // it is used for storing result of querying from contacts table
-type ContactResult struct {
-	MainUser    string
-	ContactUser string
-	IsBlocked   int
-}
+//type ContactResult struct {
+//	MainUser    string
+//	ContactUser string
+//	IsBlocked   int
+//}
 
 // IsUserBlocked checks if user is blocked for chatting in contacts table
 // Function returns: if succeed - true or false from contacts table(depend is contact blocked or not) and nil,
@@ -94,7 +95,7 @@ func IsUserBlocked(request *messageService.Message) (isBlocked bool, err error) 
 		loger.Log.Errorf("DB error has occurred: ", err)
 		return true, err
 	}
-	var result ContactResult //variable for storing result of querying into ContactResult struct
+	var result contacts.Contact //variable for storing result of querying into ContactResult struct
 	// SELECT main_user, contact_user, is_blocked FROM contacts
 	// WHERE main_user = "mainUser value from request body"
 	// AND contact_user = "contactUser value from request body"
