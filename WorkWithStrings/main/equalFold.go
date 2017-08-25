@@ -14,5 +14,6 @@ func main() {
 	fmt.Println(strings.EqualFold("JAPAN-1254", "japan-1254"))
 	fmt.Println(strings.EqualFold(" ", " "))  // single space both side
 	fmt.Println(strings.EqualFold(" ", "  "))  // double space right side
+	fmt.Println(strings.EqualFold("        ", "  "))  // double space right side
 }
 
