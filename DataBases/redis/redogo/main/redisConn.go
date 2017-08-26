@@ -15,9 +15,9 @@ func main() {
 	if (err) {
 		fmt.Println("Error getting values", err)
 	}
-	for i:= range data {
+	for range data {
 		var Uname string
-		data,err := redis.Scan(data, &Uname)
+		data, err = redis.Scan(data, &Uname)
 		if (err) {
 			fmt.Println("Error getting value",err)
 		}else {
