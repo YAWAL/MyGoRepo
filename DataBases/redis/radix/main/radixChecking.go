@@ -55,4 +55,15 @@ func main() {
 	errHndlr(err)
 	fmt.Println("mykey0:", s)
 
+	myhash := map[string]string{
+		"mykey1": "myval1",
+		"mykey2": "myval2",
+		"mykey3": "myval3",
+	}
+
+	// Alternatively:
+	// c.Cmd("mset", "mykey1", "myval1", "mykey2", "myval2", "mykey3", "myval3")
+	r = conn.Cmd("mset", myhash)
+	errHndlr(r.Err)
+
 }
